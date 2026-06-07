@@ -250,14 +250,14 @@ const GENRE_TRANSLATIONS: Record<GenreKey, Record<Locale, string>> = {
 };
 
 const GENRE_ITEMS: { id: string; key: GenreKey; imageName: string }[] = [
-  { id: "18", key: "drama", imageName: "Drama03.png" },
-  { id: "35", key: "comedy", imageName: "Comedy.png" },
-  { id: "9648,53", key: "thriller", imageName: "Thriller.png" },
-  { id: "28", key: "action", imageName: "Action.png" },
-  { id: "16", key: "animation", imageName: "Animation.png" },
-  { id: "80", key: "crime", imageName: "Crime.png" },
-  { id: "99", key: "documentary", imageName: "Documentary.png" },
-  { id: "10751", key: "kids", imageName: "Kid.png" },
+  { id: "18", key: "drama", imageName: "Drama-1.png" },
+  { id: "35", key: "comedy", imageName: "Comedy-1.png" },
+  { id: "9648,53", key: "thriller", imageName: "Thriller-1.png" },
+  { id: "28", key: "action", imageName: "Action-1.png" },
+  { id: "16", key: "animation", imageName: "Animation-1.png" },
+  { id: "80", key: "crime", imageName: "Crime-1.png" },
+  { id: "99", key: "documentary", imageName: "Documentary-1.png" },
+  { id: "10751", key: "kids", imageName: "Kid-1.png" },
 ];
 
 function createTmdbListRoute(

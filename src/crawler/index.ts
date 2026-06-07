@@ -254,7 +254,7 @@ const GENRE_ITEMS: { id: string; key: GenreKey; imageName: string }[] = [
   { id: "35", key: "comedy", imageName: "Comedy-1.png" },
   { id: "9648,53", key: "thriller", imageName: "Thriller-1.png" },
   { id: "28", key: "action", imageName: "Action-1.png" },
-  { id: "16", key: "animation", imageName: "Animation-1.png" },
+  { id: "16", key: "animation", imageName: "Animation-1x.png" },
   { id: "80", key: "crime", imageName: "Crime-1.png" },
   { id: "99", key: "documentary", imageName: "Documentary-1.png" },
   { id: "10751", key: "kids", imageName: "Kid-1.png" },

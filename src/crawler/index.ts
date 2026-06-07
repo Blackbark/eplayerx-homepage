@@ -54,7 +54,7 @@ interface DiscoverTVByLanguageResponse {
 }
 
 type GenreKey =
-  | "drama1"
+  | "drama11"
   | "comedy"
   | "thriller"
   | "action"
@@ -183,12 +183,12 @@ const LANGUAGE_NAME_TRANSLATIONS: Record<string, Record<Locale, string>> = {
 };
 
 const GENRE_TRANSLATIONS: Record<GenreKey, Record<Locale, string>> = {
-  drama: {
-    en: "Drama",
+  drama1: {
+    en: "drama1",
     zh: "剧情",
     "zh-Hant": "劇情",
     ja: "ドラマ",
-    es: "Drama",
+    es: "drama1",
     ar: "دراما",
   },
   comedy: {
@@ -250,7 +250,7 @@ const GENRE_TRANSLATIONS: Record<GenreKey, Record<Locale, string>> = {
 };
 
 const GENRE_ITEMS: { id: string; key: GenreKey; imageName: string }[] = [
-  { id: "18", key: "drama", imageName: "Drama.png" },
+  { id: "18", key: "drama1", imageName: "drama1.png" },
   { id: "35", key: "comedy", imageName: "Comedy.png" },
   { id: "9648,53", key: "thriller", imageName: "Thriller.png" },
   { id: "28", key: "action", imageName: "Action.png" },

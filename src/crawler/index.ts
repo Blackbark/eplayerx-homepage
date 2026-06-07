@@ -54,7 +54,7 @@ interface DiscoverTVByLanguageResponse {
 }
 
 type GenreKey =
-  | "drama"
+  | "drama1"
   | "comedy"
   | "thriller"
   | "action"

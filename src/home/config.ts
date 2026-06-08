@@ -158,7 +158,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       id: "tmdb_anime_cn",
       mediaType: "tv",
       titleKey: "home.tmdb_anime_cn",
-      preset: "thumb-list",
+      preset: "hero-list",
       showOverview: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_cn", itemEnvelope: "data" },
     },

@@ -151,7 +151,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       id: "trakt-popular-movies",
       mediaType: "movie",
       titleKey: "home.trakt_popular_movies",
-      preset: "thumb-list",
+      preset: "poster-list", // 这里保留了竖版带Logo的设置
       showOverview: true,
       source: { path: "/crawler/popular/trakt/movies", itemEnvelope: "data" },
     },
@@ -159,7 +159,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       id: "trakt-popular-shows",
       mediaType: "tv",
       titleKey: "home.trakt_popular_shows",
-      preset: "thumb-list",
+      preset: "poster-list", // 这里保留了竖版带Logo的设置
       showOverview: true,
       source: { path: "/crawler/popular/trakt/shows", itemEnvelope: "data" },
     },
@@ -276,13 +276,14 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       showOverview: true,
       source: { path: "/crawler/popular/douban/hot-variety-shows", itemEnvelope: "data" },
     },
-    // ✨ 西语剧集已被我接入到爬虫大盘通道，这样就会有精美 Logo 了
+    // ✨ 这里核心修复！把你原生的西语剧集原封不动恢复回来！
+    // 恢复为直连 TMDB，恢复原生的无线滚动翻页！
     {
       id: "tmdb-popular-spanish-tv-shows",
       mediaType: "tv",
       titleKey: "home.popular_spanish_tv_shows",
       preset: "thumb-list",
-      source: { path: "/crawler/popular/tmdb/tv-es", itemEnvelope: "data" },
+      source: { path: "/tmdb/discover/tv", query: { with_original_language: "es", sort_by: "popularity.desc", language, page: 1 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } },
     },
     {
       id: "tmdb-discover-genres",

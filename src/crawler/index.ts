@@ -92,161 +92,28 @@ interface DiscoverTVByNetworkResponse {
 }
 
 const LANGUAGE_NAME_TRANSLATIONS: Record<string, Record<Locale, string>> = {
-  en: {
-    en: "English",
-    zh: "英语",
-    "zh-Hant": "英語",
-    ja: "英語",
-    es: "Inglés",
-    ar: "الإنجليزية",
-  },
-  zh: {
-    en: "Chinese",
-    zh: "中文",
-    "zh-Hant": "中文",
-    ja: "中国語",
-    es: "Chino",
-    ar: "الصينية",
-  },
-  ja: {
-    en: "Japanese",
-    zh: "日语",
-    "zh-Hant": "日語",
-    ja: "日本語",
-    es: "Japonés",
-    ar: "اليابانية",
-  },
-  ko: {
-    en: "Korean",
-    zh: "韩语",
-    "zh-Hant": "韓語",
-    ja: "韓国語",
-    es: "Coreano",
-    ar: "الكورية",
-  },
-  es: {
-    en: "Spanish",
-    zh: "西班牙语",
-    "zh-Hant": "西班牙語",
-    ja: "スペイン語",
-    es: "Español",
-    ar: "الإسبانية",
-  },
-  th: {
-    en: "Thai",
-    zh: "泰语",
-    "zh-Hant": "泰語",
-    ja: "タイ語",
-    es: "Tailandés",
-    ar: "التايلاندية",
-  },
-  hi: {
-    en: "Hindi",
-    zh: "印度语",
-    "zh-Hant": "印度語",
-    ja: "ヒンディー語",
-    es: "Hindi",
-    ar: "الهندية",
-  },
-  tr: {
-    en: "Turkish",
-    zh: "土耳其语",
-    "zh-Hant": "土耳其語",
-    ja: "トルコ語",
-    es: "Turco",
-    ar: "التركية",
-  },
-  ar: {
-    en: "Arabic",
-    zh: "阿拉伯语",
-    "zh-Hant": "阿拉伯語",
-    ja: "アラビア語",
-    es: "Árabe",
-    ar: "العربية",
-  },
-  fr: {
-    en: "French",
-    zh: "法语",
-    "zh-Hant": "法語",
-    ja: "フランス語",
-    es: "Francés",
-    ar: "الفرنسية",
-  },
-  it: {
-    en: "Italian",
-    zh: "意大利语",
-    "zh-Hant": "義大利語",
-    ja: "イタリア語",
-    es: "Italiano",
-    ar: "الإيطالية",
-  },
+  en: { en: "English", zh: "英语", "zh-Hant": "英語", ja: "英語", es: "Inglés", ar: "الإنجليزية" },
+  zh: { en: "Chinese", zh: "中文", "zh-Hant": "中文", ja: "中国語", es: "Chino", ar: "الصينية" },
+  ja: { en: "Japanese", zh: "日语", "zh-Hant": "日語", ja: "日本語", es: "Japonés", ar: "اليابانية" },
+  ko: { en: "Korean", zh: "韩语", "zh-Hant": "韓語", ja: "韓国語", es: "Coreano", ar: "الكورية" },
+  es: { en: "Spanish", zh: "西班牙语", "zh-Hant": "西班牙語", ja: "スペイン語", es: "Español", ar: "الإسبانية" },
+  th: { en: "Thai", zh: "泰语", "zh-Hant": "泰語", ja: "タイ語", es: "Tailandés", ar: "التايلاندية" },
+  hi: { en: "Hindi", zh: "印度语", "zh-Hant": "印度語", ja: "ヒンディー語", es: "Hindi", ar: "الهندية" },
+  tr: { en: "Turkish", zh: "土耳其语", "zh-Hant": "土耳其語", ja: "トルコ語", es: "Turco", ar: "التركية" },
+  ar: { en: "Arabic", zh: "阿拉伯语", "zh-Hant": "阿拉伯語", ja: "アラビア語", es: "Árabe", ar: "العربية" },
+  fr: { en: "French", zh: "法语", "zh-Hant": "法語", ja: "フランス語", es: "Francés", ar: "الفرنسية" },
+  it: { en: "Italian", zh: "意大利语", "zh-Hant": "義大利語", ja: "イタリア語", es: "Italiano", ar: "الإيطالية" },
 };
 
 const GENRE_TRANSLATIONS: Record<GenreKey, Record<Locale, string>> = {
-  drama: {
-    en: "drama",
-    zh: "剧情",
-    "zh-Hant": "劇情",
-    ja: "ドラマ",
-    es: "drama",
-    ar: "دراما",
-  },
-  comedy: {
-    en: "Comedy",
-    zh: "喜剧",
-    "zh-Hant": "喜劇",
-    ja: "コメディ",
-    es: "Comedia",
-    ar: "كوميديا",
-  },
-  thriller: {
-    en: "Thriller&Mystery",
-    zh: "悬疑惊悚",
-    "zh-Hant": "懸疑驚悚",
-    ja: "スリラー＆ミステリー",
-    es: "Thriller y Misterio",
-    ar: "إثارة وغموض",
-  },
-  action: {
-    en: "Action",
-    zh: "动作",
-    "zh-Hant": "動作",
-    ja: "アクション",
-    es: "Acción",
-    ar: "أكشن",
-  },
-  animation: {
-    en: "Animation",
-    zh: "动画",
-    "zh-Hant": "動畫",
-    ja: "アニメーション",
-    es: "Animación",
-    ar: "أنميشن",
-  },
-  crime: {
-    en: "Crime",
-    zh: "犯罪",
-    "zh-Hant": "犯罪",
-    ja: "犯罪",
-    es: "Crimen",
-    ar: "جريمة",
-  },
-  documentary: {
-    en: "Documentary",
-    zh: "纪录片",
-    "zh-Hant": "紀錄片",
-    ja: "ドキュメンタリー",
-    es: "Documental",
-    ar: "وثائقي",
-  },
-  kids: {
-    en: "Kids&Family",
-    zh: "合家欢",
-    "zh-Hant": "闔家歡",
-    ja: "キッズ＆ファミリー",
-    es: "Niños y Familia",
-    ar: "أطفال وعائلة",
-  },
+  drama: { en: "drama", zh: "剧情", "zh-Hant": "劇情", ja: "ドラマ", es: "drama", ar: "دراما" },
+  comedy: { en: "Comedy", zh: "喜剧", "zh-Hant": "喜劇", ja: "コメディ", es: "Comedia", ar: "كوميديا" },
+  thriller: { en: "Thriller&Mystery", zh: "悬疑惊悚", "zh-Hant": "懸疑驚悚", ja: "スリラー＆ミステリー", es: "Thriller y Misterio", ar: "إثارة وغموض" },
+  action: { en: "Action", zh: "动作", "zh-Hant": "動作", ja: "アクション", es: "Acción", ar: "أكشن" },
+  animation: { en: "Animation", zh: "动画", "zh-Hant": "動畫", ja: "アニメーション", es: "Animación", ar: "أنميشن" },
+  crime: { en: "Crime", zh: "犯罪", "zh-Hant": "犯罪", ja: "犯罪", es: "Crimen", ar: "جريمة" },
+  documentary: { en: "Documentary", zh: "纪录片", "zh-Hant": "紀錄片", ja: "ドキュメンタリー", es: "Documental", ar: "وثائقي" },
+  kids: { en: "Kids&Family", zh: "合家欢", "zh-Hant": "闔家歡", ja: "キッズ＆ファミリー", es: "Niños y Familia", ar: "أطفال وعائلة" },
 };
 
 const GENRE_ITEMS: { id: string; key: GenreKey; imageName: string }[] = [
@@ -388,7 +255,6 @@ app.get("/cron/crawl-all", async (c) => {
   try {
     console.log("🕐 Scheduled crawl started at", new Date().toISOString());
 
-    // Run all crawlers in parallel for better performance
     const [
       movies,
       tvSeries,
@@ -436,101 +302,42 @@ app.get("/cron/crawl-all", async (c) => {
   }
 });
 
-app.get("/popular/douban/movies", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/douban-movies.json`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
-    },
-  });
-});
+// ===============================================
+// ✨ 核心修改区：通过辅助函数映射所有的 R2 JSON 文件
+// ===============================================
 
-app.get("/popular/douban/tv", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/douban-tv.json`;
+async function fetchR2Json(c: Context, fileName: string) {
+  const url = `https://${R2_CUSTOM_DOMAIN}/${fileName}`;
   const response = await fetch(url);
   return new Response(response.body, {
     status: response.status,
     headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
+      "Content-Type": response.headers.get("Content-Type") || "application/json",
     },
   });
-});
+}
 
-app.get("/popular/douban/korean-tv", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/douban-korean-tv.json`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
-    },
-  });
-});
+// 1. 旧有路由映射 (原封不动保留)
+app.get("/popular/douban/movies", (c) => fetchR2Json(c, "douban-movies.json"));
+app.get("/popular/douban/tv", (c) => fetchR2Json(c, "douban-tv.json"));
+app.get("/popular/douban/korean-tv", (c) => fetchR2Json(c, "douban-korean-tv.json"));
+app.get("/popular/douban/japanese-tv", (c) => fetchR2Json(c, "douban-japanese-tv.json"));
+app.get("/popular/hami/taiwanese-tv", (c) => fetchR2Json(c, "hami-taiwanese-tv.json"));
+app.get("/popular/douban/animation", (c) => fetchR2Json(c, "douban-animation.json"));
+app.get("/popular/douban/hot-variety-shows", (c) => fetchR2Json(c, "douban-hot-variety-shows.json"));
+app.get("/popular/bangumi/animation", (c) => fetchR2Json(c, "bangumi-animation.json"));
 
-app.get("/popular/douban/japanese-tv", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/douban-japanese-tv.json`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
-    },
-  });
-});
+// 2. ✨ 新增的 Trakt & TMDB 路由映射 (对接前端 config.ts)
+app.get("/popular/trakt/movies", (c) => fetchR2Json(c, "trakt-movies.json"));
+app.get("/popular/trakt/shows", (c) => fetchR2Json(c, "trakt-shows.json"));
+app.get("/popular/tmdb/anime-jp", (c) => fetchR2Json(c, "tmdb-anime-jp.json"));
+app.get("/popular/tmdb/anime-cn", (c) => fetchR2Json(c, "tmdb-anime-cn.json"));
+app.get("/popular/tmdb/tv-ja", (c) => fetchR2Json(c, "tmdb-tv-ja.json"));
+app.get("/popular/tmdb/tv-th", (c) => fetchR2Json(c, "tmdb-tv-th.json"));
+app.get("/popular/tmdb/movie-th", (c) => fetchR2Json(c, "tmdb-movie-th.json"));
+app.get("/popular/tmdb/movie-sea", (c) => fetchR2Json(c, "tmdb-movie-sea.json"));
 
-app.get("/popular/hami/taiwanese-tv", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/hami-taiwanese-tv.json`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
-    },
-  });
-});
-
-app.get("/popular/douban/animation", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/douban-animation.json`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
-    },
-  });
-});
-
-app.get("/popular/douban/hot-variety-shows", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/douban-hot-variety-shows.json`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
-    },
-  });
-});
-
-app.get("/popular/bangumi/animation", async (_c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/bangumi-animation.json`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type":
-        response.headers.get("Content-Type") || "application/json",
-    },
-  });
-});
+// ===============================================
 
 app.get("/discover/genres", (c) => {
   const locale = resolveRequestLocale(c) ?? "en";

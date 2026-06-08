@@ -29,6 +29,7 @@ type SourceQueryValue = string | number | boolean; interface HomePagination { pa
 type TmdbListRoute = { type: "tmdb-list"; title: string; params: { category: "trending" | "top-rated" | "discover"; type: "movie" | "tv"; genre?: string; language?: string; network?: string; networkName?: string; }; };
 type TmdbListRouteParams = TmdbListRoute["params"];
 interface HomeBlockSource { id?: string; path?: string; query?: Record<string, SourceQueryValue>; itemEnvelope?: "data" | "results" | "array"; pagination?: HomePagination; }
+// 🌟 TypeScript 接口支持 showScore
 interface HomeBlock { id: string; title?: string; mediaType?: "movie" | "tv"; preset: string; showRank?: boolean; showOverview?: boolean; showScore?: boolean; source?: HomeBlockSource; metadata?: { isAnime?: boolean; }; route?: TmdbListRoute; }
 type HomeBlockTemplate = Omit<HomeBlock, "title"> & { titleKey?: HomeTitleKey; };
 export interface DefaultHomeConfigOptions { apiBaseUrl: string; imageBaseUrl: string; language: string; timezone: string; }

@@ -1,0 +1,369 @@
+{
+  "platform": "tmdb",
+  "type": "korean_tv_series",
+  "count": 20,
+  "lastUpdated": "2026-06-08T05:36:33.931Z",
+  "data": [
+    {
+      "title": "Running Man",
+      "tmdbId": 33238,
+      "vote_average": 8.257,
+      "poster_path": "/15SMnscZqd7HZ0bzruatOcKUlOV.jpg",
+      "backdrop_path": "/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
+      "genre_ids": [
+        35,
+        10764
+      ],
+      "media_type": "tv",
+      "first_air_date": "2010-07-11",
+      "overview": "《Running Man》（韩语：런닝맨）是由韩国SBS电视台在《星期天真好》单元推出的户外竞技真人秀节目。\n\n节目致力于打造一个不同于Real variety的新型态娱乐节目。每期有不同的主题，由不同的嘉宾参演，分为不同的队伍进行比赛，通过完成各种游戏任务，最后获胜一方将获得称号或奖品。\n\n包括七名固定成员是刘在石、池石镇、金钟国、HAHA（河东勋）、宋智孝，以及2017年加入的全昭旻、梁世灿。前成员宋仲基、Lizzy（朴秀英）、Gary（姜熙建）、李光洙因个人发展原因离开。2023年10月30日，成员全昭旻将录制完最后一期《Running Man》后正式离开；12月18日，经纪公司表示，池石镇因身体原因暂时退出《Running Man》。",
+      "thumb": "/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "铁拳教育",
+      "tmdbId": 276161,
+      "vote_average": 9.083,
+      "poster_path": "/7KEA6GYQ81Lcmu3KHee2eYKjccP.jpg",
+      "backdrop_path": "/wsfF3ASiJODTZ9hSlHkEYqJH6oN.jpg",
+      "genre_ids": [
+        10759,
+        18,
+        35
+      ],
+      "media_type": "tv",
+      "first_air_date": "2026-06-05",
+      "overview": "在校园暴力猖獗、教师权威瓦解且恐龙家长无理解干涉的崩坏世界中，政府为了重整教育体制，依法创立了特殊机构“教权保护局”。当学校陷入常规手段无法解决的混乱失序时，特勤小组便会奉命出动。他们获准在必要时不惜逾越法律规范，使出课本上绝对不会教的强硬暴力与非常规手段，展开拳拳到肉的黑色幽默反击。这群特勤队员无所不用其极，誓言要对越界的失控学生、失格教师及傲慢家长实施痛快的“铁拳教育”，以恶制恶地夺回崩塌的教育正义与崩溃的校园秩序。",
+      "thumb": "/wsfF3ASiJODTZ9hSlHkEYqJH6oN.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "딥메이트",
+      "tmdbId": 311722,
+      "vote_average": 0,
+      "poster_path": "/2IGSx9aqsFESW06rJroXDMDrANJ.jpg",
+      "backdrop_path": null,
+      "genre_ids": [],
+      "media_type": "tv",
+      "first_air_date": "2026-01-15",
+      "overview": "",
+      "thumb": null,
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "猎犬",
+      "tmdbId": 127529,
+      "vote_average": 8.453,
+      "poster_path": "/f3EBwYRGPRv3peMdKjwbPaPB8m9.jpg",
+      "backdrop_path": "/zhsEnDNCQX5dlI2wbKzV90pV0B9.jpg",
+      "genre_ids": [
+        18,
+        10759,
+        80
+      ],
+      "media_type": "tv",
+      "first_air_date": "2023-06-09",
+      "overview": "两名年轻的拳击手与心地善良的放贷人联手对抗趁人之危的冷酷高利贷者。",
+      "thumb": "/zhsEnDNCQX5dlI2wbKzV90pV0B9.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "鱿鱼游戏",
+      "tmdbId": 93405,
+      "vote_average": 7.856,
+      "poster_path": "/1qLhWdhkuchtoBLmLzvubxqgF8O.jpg",
+      "backdrop_path": "/2meX1nMdScFOoV4370rqHWKmXhY.jpg",
+      "genre_ids": [
+        10759,
+        9648,
+        18
+      ],
+      "media_type": "tv",
+      "first_air_date": "2021-09-17",
+      "overview": "数百名经济拮据的人接受了一个奇怪的邀请，参加儿童游戏比赛。在这场游戏中，有诱人的奖金，也有致命的高风险。",
+      "thumb": "/2meX1nMdScFOoV4370rqHWKmXhY.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "弱小英雄",
+      "tmdbId": 200709,
+      "vote_average": 8.676,
+      "poster_path": "/bz5XuVcMYlc0btR96UCOnBCrCKN.jpg",
+      "backdrop_path": "/hj2YSkoqHB2FPHeoALfdd4eufue.jpg",
+      "genre_ids": [
+        10759,
+        18
+      ],
+      "media_type": "tv",
+      "first_air_date": "2022-11-18",
+      "overview": "在意想不到的朋友的帮助下，一名富有天赋却内向的学生对抗霸凌者和暴力的敌人，却不知他的世界将会变得多么危险。",
+      "thumb": "/hj2YSkoqHB2FPHeoALfdd4eufue.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "超能路人甲",
+      "tmdbId": 259837,
+      "vote_average": 9.039,
+      "poster_path": "/8uhY6EYNJH4tkdfC1zY8ZoVk7eM.jpg",
+      "backdrop_path": "/y2u7d8evmnTivi3LaVql01Sfea4.jpg",
+      "genre_ids": [
+        10759,
+        35,
+        10765,
+        18
+      ],
+      "media_type": "tv",
+      "first_air_date": "2026-05-15",
+      "overview": "世界末日论盛行的 1999 年世纪末，一群原本平凡的“路人甲”意外获得超能力，却没有走上典型英雄之路，反而以各自不按牌理出牌的方式组成临时英雄联盟，对抗威胁世界和平的反派势力，在混乱与笑料之中肩负起守护世界的任务。",
+      "thumb": "/y2u7d8evmnTivi3LaVql01Sfea4.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "认识的哥哥",
+      "tmdbId": 70672,
+      "vote_average": 7.5,
+      "poster_path": "/srYdgsX2no1UtB2MZr4V4qTC76p.jpg",
+      "backdrop_path": "/a8a8z4aJr40zYgRMfmSESppX2eO.jpg",
+      "genre_ids": [
+        10764,
+        35
+      ],
+      "media_type": "tv",
+      "first_air_date": "2015-12-05",
+      "overview": "本片是一个场景喜剧综艺节目。 在每集中，新的名人嘉宾将以转校生形式来到这所“哥哥学校”，七位调皮的哥哥同学则在这里恭候他们，大家一同参与节目中充满欢乐气氛的环节。",
+      "thumb": "/a8a8z4aJr40zYgRMfmSESppX2eO.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "제발 조용히 좀 해!",
+      "tmdbId": 299989,
+      "vote_average": 7.5,
+      "poster_path": "/esJcpCfHRTtjOvbCc1YzQJndUkh.jpg",
+      "backdrop_path": "/kvHjFg6E85wilQUz8BXhZ1KSebx.jpg",
+      "genre_ids": [
+        35,
+        16
+      ],
+      "media_type": "tv",
+      "first_air_date": "2025-09-02",
+      "overview": "",
+      "thumb": "/kvHjFg6E85wilQUz8BXhZ1KSebx.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "惊人的星期六",
+      "tmdbId": 78648,
+      "vote_average": 7.6,
+      "poster_path": "/y2LiJ7NZeOJyMiomaB6Yl2p9rJK.jpg",
+      "backdrop_path": "/pNdUVPm6RwvG9Ycd2cuYpLbM7lk.jpg",
+      "genre_ids": [
+        35,
+        10764
+      ],
+      "media_type": "tv",
+      "first_air_date": "2018-04-07",
+      "overview": "节目主轴以韩国各地人气市场中的代表食物为主，固定成员们及嘉宾们负责执行任务，进而赢取各种食物。节目中的任务包括听写歌词及各种类问答。",
+      "thumb": "/pNdUVPm6RwvG9Ycd2cuYpLbM7lk.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "金炳万的丛林法则",
+      "tmdbId": 52910,
+      "vote_average": 6,
+      "poster_path": "/qG2JpIDuYhuQOMSLqmMtHBBbfx5.jpg",
+      "backdrop_path": "/sgE2evtpaP5b9tavrgYCy2nKYLT.jpg",
+      "genre_ids": [
+        10764
+      ],
+      "media_type": "tv",
+      "first_air_date": "2011-10-21",
+      "overview": "　　金炳万的丛林法则是一部以生产和丛林冒险为主题的韩国真人秀艺能节目。第一回非洲纳米比亚篇中金炳万族长带领歌手ZE:A组合成员黄光熙，演员Ricky Kim以及演员柳谭一起进入海拔1000米以上，拥有22个国家公园和全世界最古老沙漠的纳米比亚并且拜访被称为红太阳战士的非洲最后的保持原始生态的民族——辛巴族，为了维护他们的传统，他们选择了退守丛林，栖身于纳米比亚边远的、未被破坏的原始环境中。金炳万族长要怎样带领他的伙伴在极其恶劣环境中生存下来？第二回的巴布亚篇，金炳万族长带领成员们到了气候湿润布满沼泽的鳄鱼之国印度尼西亚巴布亚丛林并在鲁中造访了处于新石器文明中Korowa族。这其中又会发生怎样的故事？",
+      "thumb": "/sgE2evtpaP5b9tavrgYCy2nKYLT.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "无限挑战",
+      "tmdbId": 5092,
+      "vote_average": 7.7,
+      "poster_path": "/fpXfEfcZu5uDTOKqjwXSGgrL4iY.jpg",
+      "backdrop_path": "/s2qJb1FLwp1Mse9lY08JqgMp0kw.jpg",
+      "genre_ids": [
+        10764,
+        35
+      ],
+      "media_type": "tv",
+      "first_air_date": "2005-04-23",
+      "overview": "《无限挑战》（朝鲜语：무한도전／無限挑戰 Muhan Dojeon；英语：Infinite Challenge）简称无挑（무도／無挑 Mudo），是由韩国MBC制作及播出的真人秀综艺节目，由2005年4月23日开始播出。节目原本是综艺时段《星期六》内的其中一个环节，经过多次节目改革，最终在2006年5月6日以韩国电视史上第一个“真实综艺节目”独立呈现，以每周不同主题和形式独立制作，《无限挑战》名称由当时沿用至第一季结束。\n\n节目结束放送前是MBC星期六黄金时段综艺中的第一线综艺，于每周六晚上18:25—19:55播放。由2011年2月19日（第237集）开始以1080i的高清电视进行广播。",
+      "thumb": "/s2qJb1FLwp1Mse9lY08JqgMp0kw.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "男生女生向前走 第五部",
+      "tmdbId": 18495,
+      "vote_average": 5.333,
+      "poster_path": "/elXJzhz1dM0lO7fK2BfO2pVtC7l.jpg",
+      "backdrop_path": "/6HBi1vfb70PfeTx78BKv2md42mm.jpg",
+      "genre_ids": [
+        18,
+        35
+      ],
+      "media_type": "tv",
+      "first_air_date": "2000-05-15",
+      "overview": "《Nonstop 5》是以文化艺术大学电影小组为背景发生的小插曲。由于学生会馆扩建工程，小组工作室变得拥挤缺乏，学校方面就临时把人员比较少，活动也不频繁的两个小组合并到一起，使用一个工作室。没办法只能使用一个工作室的两个小组的成员们，因为自尊心，结果引发了不平坦的学校生活...",
+      "thumb": "/6HBi1vfb70PfeTx78BKv2md42mm.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "我家的熊孩子",
+      "tmdbId": 72896,
+      "vote_average": 7,
+      "poster_path": "/eFxC1aItvr2xGfG2Z7lXQt6CfnB.jpg",
+      "backdrop_path": "/vrLDuQ5L45f7vFWpMT17WopdWx0.jpg",
+      "genre_ids": [
+        10764,
+        10767
+      ],
+      "media_type": "tv",
+      "first_air_date": "2016-08-26",
+      "overview": "《我家的熊孩子》是一档韩国脱口秀节目。节目主要关注家长与孩子之间的问题。你对孩子了解多少？今天孩子和谁见面了，又发生了什么样的故事？孩子今天怎么满面愁容，又为什么食欲突然增加？通过这个节目家长对这些问题会有更深的思考。",
+      "thumb": "/vrLDuQ5L45f7vFWpMT17WopdWx0.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "21世纪大君夫人",
+      "tmdbId": 278573,
+      "vote_average": 8.858,
+      "poster_path": "/etY1kHe8NTFFNHdL6FmJcNuvCLW.jpg",
+      "backdrop_path": "/6ekykPwvAywJRjFEnUoCFWTO9O3.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "media_type": "tv",
+      "first_air_date": "2026-04-10",
+      "overview": "欢迎来到21世纪的韩国，一个传统与现代交织的君主立宪制国家。在光鲜亮丽的外表下，隐藏着壁垒分明的社会阶级制度。成熙周，一位才华洋溢的财阀继承人兼首席执行官，似乎拥有一切，但出身平民的她却始终得不到应有的尊重。在诞日宴上与理安大君相遇后，她决心掌握自己的命运。她拥有一切，唯独缺少身份；而他空有尊贵的身份，实际上却一无所有。两人缔结了世纪婚约。他们能否打破社会壁垒，开创属于自己的命运？",
+      "thumb": "/6ekykPwvAywJRjFEnUoCFWTO9O3.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "两天一夜",
+      "tmdbId": 30801,
+      "vote_average": 7.1,
+      "poster_path": "/id8DadRLPgv38eMVgqFruKbJ112.jpg",
+      "backdrop_path": "/sDoSavurRsckAldstpCvUs30A6P.jpg",
+      "genre_ids": [
+        35,
+        10764
+      ],
+      "media_type": "tv",
+      "first_air_date": "2007-08-05",
+      "overview": "　　《两天一夜》韩国KBS出品的电视综艺节目。2007年8月5日节目正式更名为《Happy Sunday - 两天一夜》（简称《两天一夜》）。\n\n　　节目以“真实体验野生，走遍韩国美丽的地方”为宗旨，成功跻身为韩国家喻户晓的综艺节目。两天一夜于2007年8月5日播放第一集，直到2012年2月26日为第一季的结束。\n\n　　两天一夜制作目的是通过主持人之间的互动、游戏，介绍韩国各地值得一游的地方、美食等等，当中不少地方是正没落、被忽略的，都会因为收视高的两天一夜而被重新带动当地的旅游业。",
+      "thumb": "/sDoSavurRsckAldstpCvUs30A6P.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "柳熙烈的写生簿",
+      "tmdbId": 39429,
+      "vote_average": 6.3,
+      "poster_path": "/gOYCF1iyYiDHqoST7wfkqBCAB8I.jpg",
+      "backdrop_path": "/gWTJDV0iRWkkiwlL5uXHQvRPbkk.jpg",
+      "genre_ids": [
+        10767
+      ],
+      "media_type": "tv",
+      "first_air_date": "2009-04-24",
+      "overview": "《柳熙烈的写生簿》是一档音乐谈话类节目，每期都有才华横溢的音乐人参加聊天及现场演出，可以与现场的观众在第一时间达到共鸣。",
+      "thumb": "/gWTJDV0iRWkkiwlL5uXHQvRPbkk.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "我的王室死对头",
+      "tmdbId": 303143,
+      "vote_average": 8.5,
+      "poster_path": "/dHFI5JHEpCcVofJsC2EhzgcbLRX.jpg",
+      "backdrop_path": "/p1ntnKJwn1URGv1xpU6NN33Y11O.jpg",
+      "genre_ids": [
+        18,
+        35,
+        10765
+      ],
+      "media_type": "tv",
+      "first_air_date": "2026-05-08",
+      "overview": "在朝鲜时代被视为最恶妖女的姜团心，被迫服毒后意外穿越到现代，成为无名女演员申瑞霜。从熟悉权力斗争的古代世界，跌入陌生的娱乐圈与现代社会，她不只得重新学习生存，还在过程中遇上冷漠傲慢的恶质财阀继承人车世界。两人从对立、试探，到逐渐被彼此打乱原本的人生轨迹，在身份错位与命运交缠之下，展开一段危险却无法抗拒的奇幻罗曼史。",
+      "thumb": "/p1ntnKJwn1URGv1xpU6NN33Y11O.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "超级飞侠",
+      "tmdbId": 71026,
+      "vote_average": 6.4,
+      "poster_path": "/ozgBKl9sNxlyHeDLx9U99rp6VhP.jpg",
+      "backdrop_path": "/vwgC68MFTgrLaTBaXFnsVAb6y1W.jpg",
+      "genre_ids": [
+        16,
+        10762
+      ],
+      "media_type": "tv",
+      "first_air_date": "2014-09-01",
+      "overview": "　　讲述了飞机机器人乐迪与一群称为“超级飞侠”的小伙伴环游世界，为小朋友递送包裹，并帮助他们解决困难的故事。作品最大的特点是每一集发生的城市都不同，用精美的画面展现了世界多元文化，例如名胜、建筑、语言、节日和美食等。故事传递着善良、勇敢、欢乐和友爱，让孩子跟随乐迪在每一次新的神奇之旅中，可以开阔眼界并认识到多彩绚丽的地球家园。",
+      "thumb": "/vwgC68MFTgrLaTBaXFnsVAb6y1W.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    },
+    {
+      "title": "闲着干嘛呢？",
+      "tmdbId": 91121,
+      "vote_average": 7.4,
+      "poster_path": "/eSnE0QTQhEssSLjhMyUhUPu4bCq.jpg",
+      "backdrop_path": "/dgutaqpLcLMoJInkbglyG8cLuji.jpg",
+      "genre_ids": [
+        10764,
+        35
+      ],
+      "media_type": "tv",
+      "first_air_date": "2019-07-27",
+      "overview": "为韩国MBC电视台于2019年推出的综艺节目，由前《无限挑战》PD金泰浩策划，刘在锡则为主持及唯一固定成员，此节目也被其朋友戏称为“刘在锡一个人的《无限挑战》”。\n\n节目名称为刘在锡每次在休息日时会问朋友的话：“今天闲着，要做什么呢？”而衍生。刘在锡凭借此节目，以溜三丝的身份，获得2019年的MBC演艺大赏的新人奖，该奖项也为刘在锡出道以来的第一个新人奖。",
+      "thumb": "/dgutaqpLcLMoJInkbglyG8cLuji.jpg",
+      "logo": null,
+      "noLogoPoster": null,
+      "crawledAt": "2026-06-08T05:36:33.931Z"
+    }
+  ]
+}

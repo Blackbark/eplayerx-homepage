@@ -2,6 +2,7 @@ type Locale = "en" | "zh" | "zh-Hant" | "ja" | "es" | "ar";
 type HomeTitleKey = "home.continue_watching" | "home.tmdb_popular_tv_shows" | "home.tmdb_popular_movies" | "home.tmdb_on_the_air_tv_shows" | "home.tmdb_discover_genres" | "home.tmdb_discover_languages" | "home.tmdb_discover_networks" | "home.tmdb_top_rated_movies" | "home.tmdb_top_rated_tv_shows"
   | "home.bangumi_popular_anime"
   | "home.imdb_top_anime"
+  | "home.prime_hot_anime"
   | "home.filmarks_anime_movie"
   | "home.netflix_hot_anime"
   | "home.tmdb_anime_top_ja"
@@ -45,6 +46,7 @@ const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.tmdb_top_rated_tv_shows": { en: "Top Rated TV Shows", zh: "高分电视剧", "zh-Hant": "高分電視劇", ja: "高評価テレビ番組", es: "Series Mejor Valoradas", ar: "المسلسلات الأعلى تقييماً" },
   "home.bangumi_popular_anime": { en: "Today's Popular Bangumi", zh: "今日热门番剧", "zh-Hant": "今日熱門番劇", ja: "今日の人気番組", es: "Bangumi Populares de Hoy", ar: "بانغومي شائع" },
   "home.imdb_top_anime": { en: "IMDb Epic Anime Masterpieces", zh: "IMDb 史诗动漫神作", "zh-Hant": "IMDb 史詩動漫神作", ja: "IMDb 傑作アニメ", es: "Obras Maestras de Anime en IMDb", ar: "أفضل أنمي على IMDb" },
+  "home.prime_hot_anime": { en: "Trending on Prime Video", zh: "Prime Video 热门日漫", "zh-Hant": "Prime Video 熱門日漫", ja: "Prime Video 人気アニメ", es: "En Tendencia en Prime Video", ar: "رائج على برايم فيديو" },
   "home.filmarks_anime_movie": { en: "Highly Rated Anime Movies", zh: "Filmarks 高分剧场版", "zh-Hant": "Filmarks 高分劇場版", ja: "Filmarks 高評価アニメ映画", es: "Películas de Anime Mejor Valoradas", ar: "أفلام أنمي عالية التقييم" },
   "home.netflix_hot_anime": { en: "Netflix Trending Anime", zh: "Netflix 独播霸榜日漫", "zh-Hant": "Netflix 獨播霸榜日漫", ja: "Netflix 話題のアニメ", es: "Anime en Tendencia de Netflix", ar: "أنمي نتفليكس الرائج" },
   "home.tmdb_anime_top_ja": { en: "Top Rated Japanese Anime", zh: "TMDB 高分神作日漫", "zh-Hant": "TMDB 高分神作日漫", ja: "TMDB 高評価日本アニメ", es: "Anime Japonés Mejor Valorado", ar: "أنمي ياباني عالي التقييم" },
@@ -60,12 +62,12 @@ const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.popular_tv_shows": { en: "Trending Domestic Dramas", zh: "时下最热门的国产剧", "zh-Hant": "時下最熱門的國產劇", ja: "話題の中国ドラマ", es: "Dramas Chinos en Tendencia", ar: "دراما صينية رائجة" },
   "home.popular_variety_shows": { en: "Today's Popular Variety Shows", zh: "实时热门综艺", "zh-Hant": "實時熱門綜藝", ja: "今日の人気バラエティ", es: "Programas de Variedades Populares de Hoy", ar: "برامج منوعة" },
   "home.popular_korean_tv_shows": { en: "Popular Korean Dramas", zh: "备受欢迎的韩剧推荐", "zh-Hant": "備受歡迎的韓劇推薦", ja: "人気の韓国ドラマ", es: "Dramas Coreanos Populares", ar: "دراما كورية شائعة" },
-  "home.popular_japanese_tv_shows": { en: "Trending Japanese Dramas", zh: "追到黑眼圈！超上头人气日剧", "zh-Hant": "追到黑眼圈！超上頭人氣日劇", ja: "寝不足注意！話題の日本ドラマ", es: "Dramas Japoneses en Tendencia", ar: "دراما يابانية رائجة" },
+  "home.popular_japanese_tv_shows": { en: "Trending Japanese Dramas", zh: "细腻又治愈的高人气日剧", "zh-Hant": "細膩又治癒的高人氣日劇", ja: "話題の日本ドラマ", es: "Dramas Japoneses en Tendencia", ar: "دراما يابانية رائجة" },
   "home.popular_taiwanese_tv_shows": { en: "Popular Taiwanese Dramas", zh: "台剧当然也不能落下", "zh-Hant": "台劇當然也不能落下", ja: "人気の台湾ドラマ", es: "Dramas Taiwaneses Populares", ar: "دراما تايوانية شائعة" },
-  "home.popular_taiwanese_movies": { en: "Popular Taiwanese Movies", zh: "浓浓台味！小清新与生猛并存的台片", "zh-Hant": "濃濃台味！小清新與生猛並存的台片", ja: "おすすめ台湾映画", es: "Películas Taiwanesas Populares", ar: "أفلام تايوانية شائعة" },
-  "home.tmdb_tv_th": { en: "Popular Thai Dramas", zh: "萨瓦迪卡！狗血又上头的爆款泰剧", "zh-Hant": "薩瓦迪卡！狗血又上頭的爆款泰劇", ja: "人気のタイドラマ", es: "Dramas Tailandeses Populares", ar: "دراما تايلاندية شائعة" },
-  "home.tmdb_movie_th": { en: "Great Thai Movies", zh: "别光看鬼片啦！泰式神级电影大赏", "zh-Hant": "別光看鬼片啦！泰式神級電影大賞", ja: "おすすめタイ映画", es: "Grandes Películas Tailandesas", ar: "أفلام تايلاندية رائعة" },
-  "home.tmdb_movie_sea": { en: "Southeast Asian Masterpieces", zh: "主打一个猎奇！东南亚宝藏影视挖挖挖", "zh-Hant": "主打一個獵奇！東南亞寶藏影視挖挖挖", ja: "東南アジアの傑作", es: "Obras Maestras del Sudeste Asiático", ar: "روائع جنوب شرق آسيا" },
+  "home.popular_taiwanese_movies": { en: "Popular Taiwanese Movies", zh: "台味浓浓的宝藏台片", "zh-Hant": "台味濃濃的寶藏台片", ja: "おすすめ台湾映画", es: "Películas Taiwanesas Populares", ar: "أفلام تايوانية شائعة" },
+  "home.tmdb_tv_th": { en: "Popular Thai Dramas", zh: "狗血上头的爆款泰剧", "zh-Hant": "狗血上頭的爆款泰劇", ja: "人気のタイドラマ", es: "Dramas Tailandeses Populares", ar: "دراما تايلاندية شائعة" },
+  "home.tmdb_movie_th": { en: "Great Thai Movies", zh: "不止鬼片的泰国电影", "zh-Hant": "不止鬼片的泰國電影", ja: "おすすめタイ映画", es: "Grandes Películas Tailandesas", ar: "أفلام تايلاندية رائعة" },
+  "home.tmdb_movie_sea": { en: "Southeast Asian Masterpieces", zh: "荷尔蒙超标的东南亚", "zh-Hant": "荷爾蒙超標的東南亞", ja: "東南アジアの傑作", es: "Obras Maestras del Sudeste Asiático", ar: "روائع جنوب شرق آسيا" },
   "home.popular_spanish_tv_shows": { en: "Trending Spanish-Language Series", zh: "时下流行的西语剧集", "zh-Hant": "時下流行的西語劇集", ja: "話題のスペイン語シリーズ", es: "Series en Español en Tendencia", ar: "مسلسلات إسبانية رائجة" },
 };
 const TMDB_LIST_ROUTE_PARAMS: Partial<Record<string, TmdbListRouteParams>> = { "tmdb-popular-tv-shows": { category: "trending", type: "tv" }, "tmdb-popular-movies": { category: "trending", type: "movie" }, "tmdb-top-rated-movies": { category: "top-rated", type: "movie" }, "tmdb-top-rated-tv-shows": { category: "top-rated", type: "tv" } };
@@ -89,6 +91,14 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       preset: "poster-list",
       showOverview: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/imdb_top_anime", itemEnvelope: "data" },
+    },
+    {
+      id: "prime_hot_anime",
+      mediaType: "tv",
+      titleKey: "home.prime_hot_anime",
+      preset: "thumb-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/prime_hot_anime", itemEnvelope: "data" },
     },
     {
       id: "filmarks_anime_movie",

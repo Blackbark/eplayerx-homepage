@@ -19,7 +19,6 @@ type HomeTitleKey =
   | "home.tmdb_discover_networks"
   | "home.tmdb_top_rated_movies"
   | "home.tmdb_top_rated_tv_shows"
-  // 👇 下面是为你新增的定制模块
   | "home.trakt_popular_movies"
   | "home.trakt_popular_shows"
   | "home.tmdb_anime_jp"
@@ -93,7 +92,6 @@ export interface DefaultHomeConfig {
 
 export const HOME_CONFIG_VERSION = 1;
 
-// 🌍 包含你所有原生标题 + 新增定制标题
 const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.continue_watching": { en: "Continue Watching", zh: "继续观看", "zh-Hant": "繼續觀看", ja: "続きを視聴", es: "Continuar Viendo", ar: "متابعة المشاهدة" },
   "home.tmdb_popular_tv_shows": { en: "Today's Popular TV Shows", zh: "今日热门电视剧", "zh-Hant": "今日熱門電視劇", ja: "今日の人気テレビ番組", es: "Series de TV Populares de Hoy", ar: "مسلسلات شائعة" },
@@ -113,8 +111,6 @@ const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.tmdb_discover_networks": { en: "Browse By Network", zh: "按平台浏览", "zh-Hant": "按平台瀏覽", ja: "配信サービスで探す", es: "Explorar por Plataforma", ar: "حسب الشبكة" },
   "home.tmdb_top_rated_movies": { en: "Top Rated Movies", zh: "高分电影", "zh-Hant": "高分電影", ja: "高評価映画", es: "Películas Mejor Valoradas", ar: "الأعلى تقييماً" },
   "home.tmdb_top_rated_tv_shows": { en: "Top Rated TV Shows", zh: "高分电视剧", "zh-Hant": "高分電視劇", ja: "高評価テレビ番組", es: "Series Mejor Valoradas", ar: "المسلسلات الأعلى تقييماً" },
-  
-  // ✨ 这里是你要求的俏皮风格翻译
   "home.trakt_popular_movies": { en: "Trending Hollywood Movies", zh: "火爆全球的欧美大片", "zh-Hant": "火爆全球的歐美大片", ja: "ハリウッド映画", es: "Películas de Hollywood", ar: "أفلام هوليوود" },
   "home.trakt_popular_shows": { en: "Trending Hollywood Shows", zh: "时下热播的欧美剧集", "zh-Hant": "時下熱播的歐美劇集", ja: "アメリカドラマ", es: "Series de Hollywood", ar: "مسلسلات هوليوود" },
   "home.tmdb_anime_jp": { en: "Trending Japanese Anime", zh: "不可错过的热门日漫", "zh-Hant": "不可錯過的熱門日漫", ja: "最新アニメ", es: "Anime Japonés", ar: "أنمي ياباني" },
@@ -151,9 +147,7 @@ function createTmdbListRoute(title: string, params: TmdbListRouteParams): TmdbLi
 
 function createDefaultBlockTemplates(language: string, timezone: string): HomeBlockTemplate[] {
   return [
-    // ------------------------------------
-    // ✨ 1. 欧美强档 (Trakt 引擎)
-    // ------------------------------------
+    // ✨ 这里恢复了 thumb-list，保证首页还是横版，点进去列表里会自动变竖版
     {
       id: "trakt-popular-movies",
       mediaType: "movie",
@@ -170,10 +164,6 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       showOverview: true,
       source: { path: "/crawler/popular/trakt/shows", itemEnvelope: "data" },
     },
-
-    // ------------------------------------
-    // ✨ 2. 原版保留的 TMDB 每日热门 & 播出
-    // ------------------------------------
     {
       id: "tmdb-popular-tv-shows",
       mediaType: "tv",
@@ -197,10 +187,6 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       preset: "hero-list",
       source: { path: "/tmdb/tv/on_the_air", query: { language, timezone }, itemEnvelope: "results" },
     },
-
-    // ------------------------------------
-    // ✨ 3. 亚洲真人剧集专区
-    // ------------------------------------
     {
       id: "douban-popular-tv-shows",
       mediaType: "tv",
@@ -237,10 +223,6 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       preset: "thumb-list",
       source: { path: "/crawler/popular/hami/taiwanese-tv", itemEnvelope: "data" },
     },
-
-    // ------------------------------------
-    // ✨ 4. 动漫专区 (日漫、国漫)
-    // ------------------------------------
     {
       id: "tmdb-anime-jp",
       mediaType: "tv",
@@ -265,10 +247,6 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       metadata: { isAnime: true },
       source: { path: "/crawler/popular/bangumi/animation", itemEnvelope: "data" },
     },
-
-    // ------------------------------------
-    // ✨ 5. 亚洲电影与综艺
-    // ------------------------------------
     {
       id: "douban-popular-movies",
       mediaType: "movie",
@@ -299,10 +277,6 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       showOverview: true,
       source: { path: "/crawler/popular/douban/hot-variety-shows", itemEnvelope: "data" },
     },
-
-    // ------------------------------------
-    // ✨ 6. 原版保留的 TMDB 西语剧与分类
-    // ------------------------------------
     {
       id: "tmdb-popular-spanish-tv-shows",
       mediaType: "tv",
@@ -358,7 +332,7 @@ export function createDefaultHomeConfig(options: DefaultHomeConfigOptions): Defa
     version: HOME_CONFIG_VERSION,
     apiBaseUrl: options.apiBaseUrl,
     imageBaseUrl: options.imageBaseUrl,
-    carouselSourceId: "trakt-popular-shows", // 顶部横屏大图轮播，使用了 Trakt 美剧
+    carouselSourceId: "trakt-popular-shows",
     blocks: createDefaultBlockTemplates(options.language, options.timezone).map((block) => resolveBlockTitle(block, options.language)),
   };
 }

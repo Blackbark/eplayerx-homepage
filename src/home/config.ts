@@ -9,10 +9,12 @@ type HomeTitleKey = "home.continue_watching" | "home.tmdb_popular_tv_shows" | "h
   | "home.douban_tv"
   | "home.douban_hot_variety"
   | "home.douban_korean_tv"
+  | "home.tmdb_anime_top_ja"
+  | "home.tmdb_anime_jp"
+  | "home.tmdb_anime_movie_ja"
+  | "home.tmdb_anime_cn"
   | "home.tmdb_tv_ja"
   | "home.tmdb_tv_th"
-  | "home.tmdb_anime_jp"
-  | "home.tmdb_anime_cn"
   | "home.tmdb_movie_th"
   | "home.tmdb_movie_sea"
   | "home.tmdb_tv_es";
@@ -44,10 +46,12 @@ const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.douban_tv": { en: "热门国产剧", zh: "热门国产剧", "zh-Hant": "热门国产剧", ja: "热门国产剧", es: "热门国产剧", ar: "热门国产剧" },
   "home.douban_hot_variety": { en: "实时热门综艺", zh: "实时热门综艺", "zh-Hant": "实时热门综艺", ja: "实时热门综艺", es: "实时热门综艺", ar: "实时热门综艺" },
   "home.douban_korean_tv": { en: "高分韩剧推荐", zh: "高分韩剧推荐", "zh-Hant": "高分韩剧推荐", ja: "高分韩剧推荐", es: "高分韩剧推荐", ar: "高分韩剧推荐" },
+  "home.tmdb_anime_top_ja": { en: "史诗级高分神作日漫", zh: "史诗级高分神作日漫", "zh-Hant": "史诗级高分神作日漫", ja: "史诗级高分神作日漫", es: "史诗级高分神作日漫", ar: "史诗级高分神作日漫" },
+  "home.tmdb_anime_jp": { en: "当前热门日本动漫", zh: "当前热门日本动漫", "zh-Hant": "当前热门日本动漫", ja: "当前热门日本动漫", es: "当前热门日本动漫", ar: "当前热门日本动漫" },
+  "home.tmdb_anime_movie_ja": { en: "备受好评的动画电影", zh: "备受好评的动画电影", "zh-Hant": "备受好评的动画电影", ja: "备受好评的动画电影", es: "备受好评的动画电影", ar: "备受好评的动画电影" },
+  "home.tmdb_anime_cn": { en: "热血国漫精选", zh: "热血国漫精选", "zh-Hant": "热血国漫精选", ja: "热血国漫精选", es: "热血国漫精选", ar: "热血国漫精选" },
   "home.tmdb_tv_ja": { en: "流行日剧榜单", zh: "流行日剧榜单", "zh-Hant": "流行日剧榜单", ja: "流行日剧榜单", es: "流行日剧榜单", ar: "流行日剧榜单" },
   "home.tmdb_tv_th": { en: "热门泰剧推荐", zh: "热门泰剧推荐", "zh-Hant": "热门泰剧推荐", ja: "热门泰剧推荐", es: "热门泰剧推荐", ar: "热门泰剧推荐" },
-  "home.tmdb_anime_jp": { en: "热门日本动漫", zh: "热门日本动漫", "zh-Hant": "热门日本动漫", ja: "热门日本动漫", es: "热门日本动漫", ar: "热门日本动漫" },
-  "home.tmdb_anime_cn": { en: "热血国漫精选", zh: "热血国漫精选", "zh-Hant": "热血国漫精选", ja: "热血国漫精选", es: "热血国漫精选", ar: "热血国漫精选" },
   "home.tmdb_movie_th": { en: "泰国好电影", zh: "泰国好电影", "zh-Hant": "泰国好电影", ja: "泰国好电影", es: "泰国好电影", ar: "泰国好电影" },
   "home.tmdb_movie_sea": { en: "东南亚佳作", zh: "东南亚佳作", "zh-Hant": "东南亚佳作", ja: "东南亚佳作", es: "东南亚佳作", ar: "东南亚佳作" },
   "home.tmdb_tv_es": { en: "西语剧集推荐", zh: "西语剧集推荐", "zh-Hant": "西语剧集推荐", ja: "西语剧集推荐", es: "西语剧集推荐", ar: "西语剧集推荐" },
@@ -131,6 +135,38 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_korean_tv", itemEnvelope: "data" },
     },
     {
+      id: "tmdb_anime_top_ja",
+      mediaType: "tv",
+      titleKey: "home.tmdb_anime_top_ja",
+      preset: "poster-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_top_ja", itemEnvelope: "data" },
+    },
+    {
+      id: "tmdb_anime_jp",
+      mediaType: "tv",
+      titleKey: "home.tmdb_anime_jp",
+      preset: "poster-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_jp", itemEnvelope: "data" },
+    },
+    {
+      id: "tmdb_anime_movie_ja",
+      mediaType: "movie",
+      titleKey: "home.tmdb_anime_movie_ja",
+      preset: "thumb-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_movie_ja", itemEnvelope: "data" },
+    },
+    {
+      id: "tmdb_anime_cn",
+      mediaType: "tv",
+      titleKey: "home.tmdb_anime_cn",
+      preset: "hero-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_cn", itemEnvelope: "data" },
+    },
+    {
       id: "tmdb_tv_ja",
       mediaType: "tv",
       titleKey: "home.tmdb_tv_ja",
@@ -145,22 +181,6 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       preset: "thumb-list",
       showOverview: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_th", itemEnvelope: "data" },
-    },
-    {
-      id: "tmdb_anime_jp",
-      mediaType: "tv",
-      titleKey: "home.tmdb_anime_jp",
-      preset: "poster-list",
-      showOverview: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_jp", itemEnvelope: "data" },
-    },
-    {
-      id: "tmdb_anime_cn",
-      mediaType: "tv",
-      titleKey: "home.tmdb_anime_cn",
-      preset: "hero-list",
-      showOverview: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_cn", itemEnvelope: "data" },
     },
     {
       id: "tmdb_movie_th",

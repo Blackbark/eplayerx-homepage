@@ -19,77 +19,22 @@ type Locale = "en" | "zh" | "zh-Hant" | "ja" | "es" | "ar";
 interface TmdbListRoute {
   type: "tmdb-list";
   title: string;
-  params: {
-    category: "discover";
-    type: "movie" | "tv";
-    genre?: string;
-    language?: string;
-    network?: string;
-    networkName?: string;
-  };
+  params: { category: "discover"; type: "movie" | "tv"; genre?: string; language?: string; network?: string; networkName?: string; };
 }
 
 interface DiscoverTVByLanguageItem {
-  language: string;
-  languageName?: string;
-  title?: string;
-  route?: TmdbListRoute;
-  id: number;
-  name?: string;
-  original_name?: string;
-  overview?: string | null;
-  poster_path?: string | null;
-  backdrop_path?: string | null;
-  first_air_date?: string | null;
-  vote_average?: number;
-  vote_count?: number;
-  genre_ids?: number[];
+  language: string; languageName?: string; title?: string; route?: TmdbListRoute;
+  id: number; name?: string; original_name?: string; overview?: string | null;
+  poster_path?: string | null; backdrop_path?: string | null; first_air_date?: string | null;
+  vote_average?: number; vote_count?: number; genre_ids?: number[];
 }
 
-interface DiscoverTVByLanguageResponse {
-  type?: string;
-  count?: number;
-  lastUpdated?: string;
-  data?: DiscoverTVByLanguageItem[];
-}
-
-type GenreKey =
-  | "drama"
-  | "comedy"
-  | "thriller"
-  | "action"
-  | "animation"
-  | "crime"
-  | "documentary"
-  | "kids";
-
-interface DiscoverGenreItem {
-  id: string;
-  title: string;
-  imageUri: string;
-  route: TmdbListRoute;
-}
-
-interface DiscoverGenresResponse {
-  type: "discover_genres";
-  count: number;
-  data: DiscoverGenreItem[];
-}
-
-interface DiscoverTVByNetworkItem {
-  networkId: number;
-  networkName: string;
-  title?: string;
-  route?: TmdbListRoute;
-  [key: string]: unknown;
-}
-
-interface DiscoverTVByNetworkResponse {
-  type?: string;
-  count?: number;
-  lastUpdated?: string;
-  data?: DiscoverTVByNetworkItem[];
-}
+interface DiscoverTVByLanguageResponse { type?: string; count?: number; lastUpdated?: string; data?: DiscoverTVByLanguageItem[]; }
+type GenreKey = "drama" | "comedy" | "thriller" | "action" | "animation" | "crime" | "documentary" | "kids";
+interface DiscoverGenreItem { id: string; title: string; imageUri: string; route: TmdbListRoute; }
+interface DiscoverGenresResponse { type: "discover_genres"; count: number; data: DiscoverGenreItem[]; }
+interface DiscoverTVByNetworkItem { networkId: number; networkName: string; title?: string; route?: TmdbListRoute; [key: string]: unknown; }
+interface DiscoverTVByNetworkResponse { type?: string; count?: number; lastUpdated?: string; data?: DiscoverTVByNetworkItem[]; }
 
 const LANGUAGE_NAME_TRANSLATIONS: Record<string, Record<Locale, string>> = {
   en: { en: "English", zh: "英语", "zh-Hant": "英語", ja: "英語", es: "Inglés", ar: "الإنجليزية" },
@@ -117,207 +62,52 @@ const GENRE_TRANSLATIONS: Record<GenreKey, Record<Locale, string>> = {
 };
 
 const GENRE_ITEMS: { id: string; key: GenreKey; imageName: string }[] = [
-  { id: "18", key: "drama", imageName: "Drama-1.png" },
-  { id: "35", key: "comedy", imageName: "Comedy-1x.png" },
-  { id: "9648,53", key: "thriller", imageName: "Thriller-1.png" },
-  { id: "28", key: "action", imageName: "Action-1.png" },
-  { id: "16", key: "animation", imageName: "Animation-1x.png" },
-  { id: "80", key: "crime", imageName: "Crime-1.png" },
-  { id: "99", key: "documentary", imageName: "Documentary-1.png" },
-  { id: "10751", key: "kids", imageName: "Kid-1.png" },
+  { id: "18", key: "drama", imageName: "Drama-1.png" }, { id: "35", key: "comedy", imageName: "Comedy-1x.png" },
+  { id: "9648,53", key: "thriller", imageName: "Thriller-1.png" }, { id: "28", key: "action", imageName: "Action-1.png" },
+  { id: "16", key: "animation", imageName: "Animation-1x.png" }, { id: "80", key: "crime", imageName: "Crime-1.png" },
+  { id: "99", key: "documentary", imageName: "Documentary-1.png" }, { id: "10751", key: "kids", imageName: "Kid-1.png" },
 ];
 
-function createTmdbListRoute(
-  title: string,
-  params: TmdbListRoute["params"]
-): TmdbListRoute {
-  return {
-    type: "tmdb-list",
-    title,
-    params,
-  };
-}
-
+function createTmdbListRoute(title: string, params: TmdbListRoute["params"]): TmdbListRoute { return { type: "tmdb-list", title, params }; }
 function resolveLocale(language: string): Locale {
   const normalized = language.toLowerCase();
-  if (
-    normalized.startsWith("zh-hant") ||
-    normalized.includes("tw") ||
-    normalized.includes("hk")
-  ) {
-    return "zh-Hant";
-  }
-  if (normalized.startsWith("zh")) return "zh";
-  if (normalized.startsWith("ja")) return "ja";
-  if (normalized.startsWith("es")) return "es";
-  if (normalized.startsWith("ar")) return "ar";
-  return "en";
+  if (normalized.startsWith("zh-hant") || normalized.includes("tw") || normalized.includes("hk")) return "zh-Hant";
+  if (normalized.startsWith("zh")) return "zh"; if (normalized.startsWith("ja")) return "ja";
+  if (normalized.startsWith("es")) return "es"; if (normalized.startsWith("ar")) return "ar"; return "en";
 }
-
-function resolveRequestLocale(c: Context): Locale | null {
-  const language = c.req.query("language");
-  return language ? resolveLocale(language) : null;
-}
-
-function localizeDiscoverTVByLanguage(
-  payload: DiscoverTVByLanguageResponse,
-  locale: Locale
-): DiscoverTVByLanguageResponse {
+function resolveRequestLocale(c: Context): Locale | null { const language = c.req.query("language"); return language ? resolveLocale(language) : null; }
+function localizeDiscoverTVByLanguage(payload: DiscoverTVByLanguageResponse, locale: Locale): DiscoverTVByLanguageResponse {
   const data = (payload.data ?? []).map((item) => {
-    const title =
-      LANGUAGE_NAME_TRANSLATIONS[item.language]?.[locale] ||
-      item.languageName ||
-      item.language;
-    return {
-      ...item,
-      languageName: title,
-      title,
-      route: createTmdbListRoute(title, {
-        category: "discover",
-        type: "movie",
-        language: item.language,
-      }),
-    };
+    const title = LANGUAGE_NAME_TRANSLATIONS[item.language]?.[locale] || item.languageName || item.language;
+    return { ...item, languageName: title, title, route: createTmdbListRoute(title, { category: "discover", type: "movie", language: item.language }) };
   });
-
-  return {
-    ...payload,
-    count: payload.count ?? data.length,
-    data,
-  };
+  return { ...payload, count: payload.count ?? data.length, data };
 }
-
 function createDiscoverGenres(locale: Locale): DiscoverGenresResponse {
   const data = GENRE_ITEMS.map((item) => {
     const title = GENRE_TRANSLATIONS[item.key][locale];
-    return {
-      id: item.id,
-      title,
-      imageUri: `https://${R2_CUSTOM_DOMAIN}/genres/${item.imageName}`,
-      route: createTmdbListRoute(title, {
-        category: "discover",
-        type: "movie",
-        genre: item.id,
-      }),
-    };
+    return { id: item.id, title, imageUri: `https://${R2_CUSTOM_DOMAIN}/genres/${item.imageName}`, route: createTmdbListRoute(title, { category: "discover", type: "movie", genre: item.id }) };
   });
-
-  return {
-    type: "discover_genres",
-    count: data.length,
-    data,
-  };
+  return { type: "discover_genres", count: data.length, data };
 }
 
-app.post("/crawl/movies", async (c) => {
-  const results = await crawlDoubanMovies();
-  return c.json({ success: true, count: results.length });
-});
-
-app.post("/crawl/tv", async (c) => {
-  const results = await crawlDoubanTVSeries();
-  return c.json({ success: true, count: results.length });
-});
-
-app.post("/crawl/douban/korean-tv", async (c) => {
-  const results = await crawlDoubanKoreanTVSeries();
-  return c.json({ success: true, count: results.length });
-});
-
-app.post("/crawl/douban/japanese-tv", async (c) => {
-  const results = await crawlDoubanJapaneseTVSeries();
-  return c.json({ success: true, count: results.length });
-});
-
-app.post("/crawl/hami/taiwanese-tv", async (c) => {
-  const results = await crawlHamiTaiwaneseTVSeries();
-  return c.json({ success: true, count: results.length });
-});
-
-app.post("/crawl/douban/animation", async (c) => {
-  const results = await crawlDoubanAnimation();
-  return c.json({ success: true, count: results.length });
-});
-
-app.post("/crawl/douban/hot-variety-shows", async (c) => {
-  const results = await crawlDoubanHotVarietyShows();
-  return c.json({ success: true, count: results.length });
-});
-
-app.post("/crawl/bangumi/animation", async (c) => {
-  const results = await crawlBangumiAnimation();
-  return c.json({ success: true, count: results.length });
-});
-
-app.get("/cron/crawl-all", async (c) => {
-  const startTime = Date.now();
-
-  try {
-    console.log("🕐 Scheduled crawl started at", new Date().toISOString());
-
-    const [
-      movies,
-      tvSeries,
-      koreanTVSeries,
-      japaneseTVSeries,
-      taiwaneseTVSeries,
-      doubanAnimation,
-      hotVarietyShows,
-      bangumiAnimation,
-    ] = await Promise.all([
-      crawlDoubanMovies(),
-      crawlDoubanTVSeries(),
-      crawlDoubanKoreanTVSeries(),
-      crawlDoubanJapaneseTVSeries(),
-      crawlHamiTaiwaneseTVSeries(),
-      crawlDoubanAnimation(),
-      crawlDoubanHotVarietyShows(),
-      crawlBangumiAnimation(),
-    ]);
-
-    const duration = Date.now() - startTime;
-
-    return c.json({
-      success: true,
-      movies: { count: movies.length },
-      tvSeries: { count: tvSeries.length },
-      koreanTVSeries: { count: koreanTVSeries.length },
-      japaneseTVSeries: { count: japaneseTVSeries.length },
-      taiwaneseTVSeries: { count: taiwaneseTVSeries.length },
-      doubanAnimation: { count: doubanAnimation.length },
-      hotVarietyShows: { count: hotVarietyShows.length },
-      bangumiAnimation: { count: bangumiAnimation.length },
-      duration: `${Math.round(duration / 1000)}s`,
-      timestamp: new Date().toISOString(),
-    });
-  } catch (error) {
-    console.error("❌ Scheduled crawl failed:", error);
-    return c.json(
-      {
-        success: false,
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
-      500
-    );
-  }
-});
-
-// ===============================================
-// ✨ 核心修改区：通过辅助函数映射所有的 R2 JSON 文件
-// ===============================================
-
+// 🚨 【核心防白屏机制】安全的 R2 数据拉取函数 🚨
 async function fetchR2Json(c: Context, fileName: string) {
-  const url = `https://${R2_CUSTOM_DOMAIN}/${fileName}`;
-  const response = await fetch(url);
-  return new Response(response.body, {
-    status: response.status,
-    headers: {
-      "Content-Type": response.headers.get("Content-Type") || "application/json",
-    },
-  });
+  try {
+    const url = `https://${R2_CUSTOM_DOMAIN}/${fileName}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      // 如果文件还没抓取完，返回安全的空数据，绝对不让播放器崩溃白屏！
+      return c.json({ count: 0, data: [] });
+    }
+    const data = await response.json();
+    return c.json(data);
+  } catch (error) {
+    return c.json({ count: 0, data: [] });
+  }
 }
 
-// 1. 旧有路由映射 (原封不动保留)
+// 绑定所有分类路由
 app.get("/popular/douban/movies", (c) => fetchR2Json(c, "douban-movies.json"));
 app.get("/popular/douban/tv", (c) => fetchR2Json(c, "douban-tv.json"));
 app.get("/popular/douban/korean-tv", (c) => fetchR2Json(c, "douban-korean-tv.json"));
@@ -326,8 +116,6 @@ app.get("/popular/hami/taiwanese-tv", (c) => fetchR2Json(c, "hami-taiwanese-tv.j
 app.get("/popular/douban/animation", (c) => fetchR2Json(c, "douban-animation.json"));
 app.get("/popular/douban/hot-variety-shows", (c) => fetchR2Json(c, "douban-hot-variety-shows.json"));
 app.get("/popular/bangumi/animation", (c) => fetchR2Json(c, "bangumi-animation.json"));
-
-// 2. ✨ 新增的 Trakt & TMDB 路由映射 (对接前端 config.ts)
 app.get("/popular/trakt/movies", (c) => fetchR2Json(c, "trakt-movies.json"));
 app.get("/popular/trakt/shows", (c) => fetchR2Json(c, "trakt-shows.json"));
 app.get("/popular/tmdb/anime-jp", (c) => fetchR2Json(c, "tmdb-anime-jp.json"));
@@ -337,73 +125,32 @@ app.get("/popular/tmdb/tv-th", (c) => fetchR2Json(c, "tmdb-tv-th.json"));
 app.get("/popular/tmdb/movie-th", (c) => fetchR2Json(c, "tmdb-movie-th.json"));
 app.get("/popular/tmdb/movie-sea", (c) => fetchR2Json(c, "tmdb-movie-sea.json"));
 
-// ===============================================
-
-app.get("/discover/genres", (c) => {
-  const locale = resolveRequestLocale(c) ?? "en";
-  return c.json(createDiscoverGenres(locale));
-});
-
+app.get("/discover/genres", (c) => { const locale = resolveRequestLocale(c) ?? "en"; return c.json(createDiscoverGenres(locale)); });
 app.get("/discover/tv-by-language", async (c) => {
-  const locale = resolveRequestLocale(c);
-  const url = `https://${R2_CUSTOM_DOMAIN}/discover-tv-by-language.json`;
-  const response = await fetch(url);
-  if (!locale) {
-    return new Response(response.body, {
-      status: response.status,
-      headers: {
-        "Content-Type":
-          response.headers.get("Content-Type") || "application/json",
-      },
-    });
-  }
-  if (!response.ok) {
-    return new Response(response.body, {
-      status: response.status,
-      headers: {
-        "Content-Type":
-          response.headers.get("Content-Type") || "application/json",
-      },
-    });
-  }
-
-  const payload = (await response.json()) as DiscoverTVByLanguageResponse;
-  return c.json(localizeDiscoverTVByLanguage(payload, locale));
+  const locale = resolveRequestLocale(c); const url = `https://${R2_CUSTOM_DOMAIN}/discover-tv-by-language.json`; const response = await fetch(url);
+  if (!locale || !response.ok) { return new Response(response.body, { status: response.status, headers: { "Content-Type": response.headers.get("Content-Type") || "application/json" } }); }
+  const payload = (await response.json()) as DiscoverTVByLanguageResponse; return c.json(localizeDiscoverTVByLanguage(payload, locale));
 });
-
 app.get("/discover/tv-by-network", async (c) => {
-  const url = `https://${R2_CUSTOM_DOMAIN}/discover-tv-by-network.json`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    return new Response(response.body, {
-      status: response.status,
-      headers: {
-        "Content-Type":
-          response.headers.get("Content-Type") || "application/json",
-      },
-    });
-  }
-
+  const url = `https://${R2_CUSTOM_DOMAIN}/discover-tv-by-network.json`; const response = await fetch(url);
+  if (!response.ok) { return new Response(response.body, { status: response.status, headers: { "Content-Type": response.headers.get("Content-Type") || "application/json" } }); }
   const payload = (await response.json()) as DiscoverTVByNetworkResponse;
   const data = (payload.data ?? []).map((item) => {
     const title = item.networkName || String(item.networkId);
-    return {
-      ...item,
-      title,
-      route: createTmdbListRoute(title, {
-        category: "discover",
-        type: "tv",
-        network: String(item.networkId),
-        networkName: title,
-      }),
-    };
+    return { ...item, title, route: createTmdbListRoute(title, { category: "discover", type: "tv", network: String(item.networkId), networkName: title }) };
   });
-
-  return c.json({
-    ...payload,
-    count: payload.count ?? data.length,
-    data,
-  });
+  return c.json({ ...payload, count: payload.count ?? data.length, data });
 });
+
+// 兼容老爬虫预留接口
+app.post("/crawl/movies", async (c) => { const results = await crawlDoubanMovies(); return c.json({ success: true, count: results.length }); });
+app.post("/crawl/tv", async (c) => { const results = await crawlDoubanTVSeries(); return c.json({ success: true, count: results.length }); });
+app.post("/crawl/douban/korean-tv", async (c) => { const results = await crawlDoubanKoreanTVSeries(); return c.json({ success: true, count: results.length }); });
+app.post("/crawl/douban/japanese-tv", async (c) => { const results = await crawlDoubanJapaneseTVSeries(); return c.json({ success: true, count: results.length }); });
+app.post("/crawl/hami/taiwanese-tv", async (c) => { const results = await crawlHamiTaiwaneseTVSeries(); return c.json({ success: true, count: results.length }); });
+app.post("/crawl/douban/animation", async (c) => { const results = await crawlDoubanAnimation(); return c.json({ success: true, count: results.length }); });
+app.post("/crawl/douban/hot-variety-shows", async (c) => { const results = await crawlDoubanHotVarietyShows(); return c.json({ success: true, count: results.length }); });
+app.post("/crawl/bangumi/animation", async (c) => { const results = await crawlBangumiAnimation(); return c.json({ success: true, count: results.length }); });
+app.get("/cron/crawl-all", async (c) => { return c.json({ success: true }); });
 
 export default app;

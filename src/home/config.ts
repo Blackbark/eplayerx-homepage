@@ -147,7 +147,6 @@ function createTmdbListRoute(title: string, params: TmdbListRouteParams): TmdbLi
 
 function createDefaultBlockTemplates(language: string, timezone: string): HomeBlockTemplate[] {
   return [
-    // ✨ 这里恢复了 thumb-list，保证首页还是横版，点进去列表里会自动变竖版
     {
       id: "trakt-popular-movies",
       mediaType: "movie",
@@ -277,12 +276,13 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       showOverview: true,
       source: { path: "/crawler/popular/douban/hot-variety-shows", itemEnvelope: "data" },
     },
+    // ✨ 西语剧集已被我接入到爬虫大盘通道，这样就会有精美 Logo 了
     {
       id: "tmdb-popular-spanish-tv-shows",
       mediaType: "tv",
       titleKey: "home.popular_spanish_tv_shows",
       preset: "thumb-list",
-      source: { path: "/tmdb/discover/tv", query: { with_original_language: "es", sort_by: "popularity.desc", language, page: 1 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } },
+      source: { path: "/crawler/popular/tmdb/tv-es", itemEnvelope: "data" },
     },
     {
       id: "tmdb-discover-genres",

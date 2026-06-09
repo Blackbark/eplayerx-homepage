@@ -24,7 +24,9 @@ type HomeTitleKey = "home.continue_watching" | "home.tmdb_popular_tv_shows" | "h
   | "home.tmdb_tv_th"
   | "home.tmdb_movie_th"
   | "home.tmdb_movie_sea"
-  | "home.popular_spanish_tv_shows";
+  | "home.popular_spanish_tv_shows"
+  | "home.netflix_minor_tv_shows"
+  | "home.netflix_minor_movies";
 type SourceQueryValue = string | number | boolean; interface HomePagination { pageParam: string; startPage: number; }
 type TmdbListRoute = { type: "tmdb-list"; title: string; params: { category: "trending" | "top-rated" | "discover"; type: "movie" | "tv"; genre?: string; language?: string; network?: string; networkName?: string; }; };
 type TmdbListRouteParams = TmdbListRoute["params"];
@@ -70,6 +72,8 @@ const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.tmdb_movie_th": { en: "Great Thai Movies", zh: "不止鬼片的泰国电影", "zh-Hant": "不止鬼片的泰國電影", ja: "おすすめタイ映画", es: "Grandes Películas Tailandesas", ar: "أفلام تايلاندية رائعة" },
   "home.tmdb_movie_sea": { en: "Southeast Asian Masterpieces", zh: "荷尔蒙超标的东南亚", "zh-Hant": "荷爾蒙超標的東南亞", ja: "東南アジアの傑作", es: "Obras Maestras del Sudeste Asiático", ar: "روائع جنوب شرق آسيا" },
   "home.popular_spanish_tv_shows": { en: "Trending Spanish-Language Series", zh: "时下流行的西语剧集", "zh-Hant": "時下流行的西語劇集", ja: "話題のスペイン語シリーズ", es: "Series en Español en Tendencia", ar: "مسلسلات إسبانية رائجة" },
+  "home.netflix_minor_tv_shows": { en: "Global Minor Language Series", zh: "Netflix 小语种神剧", "zh-Hant": "Netflix 小語種神劇", ja: "マイナー言語の傑作ドラマ", es: "Series Internacionales", ar: "مسلسلات بلغات أخرى" },
+  "home.netflix_minor_movies": { en: "Hidden Gem International Movies", zh: "冷门却惊艳的小语种电影", "zh-Hant": "冷門卻驚豔的小語種電影", ja: "知られざる名作映画", es: "Joyas Ocultas del Cine", ar: "أفلام عالمية مميزة" },
 };
 const TMDB_LIST_ROUTE_PARAMS: Partial<Record<string, TmdbListRouteParams>> = { "tmdb-popular-tv-shows": { category: "trending", type: "tv" }, "tmdb-popular-movies": { category: "trending", type: "movie" }, "tmdb-top-rated-movies": { category: "top-rated", type: "movie" }, "tmdb-top-rated-tv-shows": { category: "top-rated", type: "tv" } };
 function resolveLocale(language: string): Locale { const normalized = language.toLowerCase(); if (normalized.startsWith("zh-hant") || normalized.includes("tw") || normalized.includes("hk")) return "zh-Hant"; if (normalized.startsWith("zh")) return "zh"; if (normalized.startsWith("ja")) return "ja"; if (normalized.startsWith("es")) return "es"; if (normalized.startsWith("ar")) return "ar"; return "en"; }
@@ -278,6 +282,22 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       preset: "poster-list",
       showOverview: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_es", itemEnvelope: "data" },
+    },
+    {
+      id: "netflix_tv_minor",
+      mediaType: "tv",
+      titleKey: "home.netflix_minor_tv_shows",
+      preset: "thumb-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/netflix_tv_minor", itemEnvelope: "data" },
+    },
+    {
+      id: "netflix_movie_minor",
+      mediaType: "movie",
+      titleKey: "home.netflix_minor_movies",
+      preset: "hero-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/netflix_movie_minor", itemEnvelope: "data" },
     },
     { id: "tmdb-popular-tv-shows", mediaType: "tv", titleKey: "home.tmdb_popular_tv_shows", preset: "thumb-list", showRank: true, source: { path: "/tmdb/trending/tv", query: { language, page: 1, limit: 20 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },
     { id: "tmdb-popular-movies", mediaType: "movie", titleKey: "home.tmdb_popular_movies", preset: "thumb-list", showRank: true, source: { path: "/tmdb/trending/movie", query: { language, page: 1 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },

@@ -25,13 +25,13 @@ type HomeTitleKey = "home.continue_watching" | "home.tmdb_popular_tv_shows" | "h
   | "home.tmdb_movie_th"
   | "home.tmdb_movie_sea"
   | "home.popular_spanish_tv_shows"
+  | "home.tmdb_tv_bl"
   | "home.netflix_minor_tv_shows"
   | "home.netflix_minor_movies";
 type SourceQueryValue = string | number | boolean; interface HomePagination { pageParam: string; startPage: number; }
 type TmdbListRoute = { type: "tmdb-list"; title: string; params: { category: "trending" | "top-rated" | "discover"; type: "movie" | "tv"; genre?: string; language?: string; network?: string; networkName?: string; }; };
 type TmdbListRouteParams = TmdbListRoute["params"];
 interface HomeBlockSource { id?: string; path?: string; query?: Record<string, SourceQueryValue>; itemEnvelope?: "data" | "results" | "array"; pagination?: HomePagination; }
-// 🌟 TypeScript 接口支持 showScore
 interface HomeBlock { id: string; title?: string; mediaType?: "movie" | "tv"; preset: string; showRank?: boolean; showOverview?: boolean; showScore?: boolean; source?: HomeBlockSource; metadata?: { isAnime?: boolean; }; route?: TmdbListRoute; }
 type HomeBlockTemplate = Omit<HomeBlock, "title"> & { titleKey?: HomeTitleKey; };
 export interface DefaultHomeConfigOptions { apiBaseUrl: string; imageBaseUrl: string; language: string; timezone: string; }
@@ -72,6 +72,7 @@ const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.tmdb_movie_th": { en: "Great Thai Movies", zh: "不止鬼片的泰国电影", "zh-Hant": "不止鬼片的泰國電影", ja: "おすすめタイ映画", es: "Grandes Películas Tailandesas", ar: "أفلام تايلاندية رائعة" },
   "home.tmdb_movie_sea": { en: "Southeast Asian Masterpieces", zh: "荷尔蒙超标的东南亚", "zh-Hant": "荷爾蒙超標的東南亞", ja: "東南アジアの傑作", es: "Obras Maestras del Sudeste Asiático", ar: "روائع جنوب شرق آسيا" },
   "home.popular_spanish_tv_shows": { en: "Trending Spanish-Language Series", zh: "时下流行的西语剧集", "zh-Hant": "時下流行的西語劇集", ja: "話題のスペイン語シリーズ", es: "Series en Español en Tendencia", ar: "مسلسلات إسبانية رائجة" },
+  "home.tmdb_tv_bl": { en: "Ultimate Asian BL Masterpieces", zh: "暧昧拉扯到极致的亚洲耽美神作", "zh-Hant": "曖昧拉扯到極致的亞洲耽美神作", ja: "極上のアジアBL・ブロマンス", es: "Obras Maestras BL Asiáticas", ar: "روائع BL الآسيوية" },
   "home.netflix_minor_tv_shows": { en: "Global Minor Language Series", zh: "Netflix 小语种神剧", "zh-Hant": "Netflix 小語種神劇", ja: "マイナー言語の傑作ドラマ", es: "Series Internacionales", ar: "مسلسلات بلغات أخرى" },
   "home.netflix_minor_movies": { en: "Hidden Gem International Movies", zh: "冷门却惊艳的小语种电影", "zh-Hant": "冷門卻驚豔的小語種電影", ja: "知られざる名作映画", es: "Joyas Ocultas del Cine", ar: "أفلام عالمية مميزة" },
 };
@@ -282,6 +283,14 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       preset: "poster-list",
       showOverview: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_es", itemEnvelope: "data" },
+    },
+    {
+      id: "tmdb_tv_bl",
+      mediaType: "tv",
+      titleKey: "home.tmdb_tv_bl",
+      preset: "thumb-list",
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_bl", itemEnvelope: "data" },
     },
     {
       id: "netflix_tv_minor",

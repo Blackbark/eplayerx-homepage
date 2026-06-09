@@ -80,7 +80,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       id: "bangumi_airing",
       mediaType: "tv",
       titleKey: "home.bangumi_popular_anime",
-      preset: "thumb-list",
+      preset: "poster-list",
       showOverview: true,
       showRank: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/bangumi_airing", itemEnvelope: "data" }
@@ -304,15 +304,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       showOverview: true,
       showRank: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_es", itemEnvelope: "data" }
-    },
-    { id: "tmdb-popular-tv-shows", mediaType: "tv", titleKey: "home.tmdb_popular_tv_shows", preset: "thumb-list", showRank: true, source: { path: "/tmdb/trending/tv", query: { language, page: 1, limit: 20 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },
-    { id: "tmdb-popular-movies", mediaType: "movie", titleKey: "home.tmdb_popular_movies", preset: "thumb-list", showRank: true, source: { path: "/tmdb/trending/movie", query: { language, page: 1 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },
-    { id: "tmdb-on-the-air-tv-shows", mediaType: "tv", titleKey: "home.tmdb_on_the_air_tv_shows", preset: "hero-list", source: { path: "/tmdb/tv/on_the_air", query: { language, timezone }, itemEnvelope: "results" } },
-    { id: "tmdb-discover-genres", titleKey: "home.tmdb_discover_genres", preset: "genres-list", source: { path: "/crawler/discover/genres", query: { language }, itemEnvelope: "data" } },
-    { id: "tmdb-discover-tv-by-language", titleKey: "home.tmdb_discover_languages", preset: "languages-list", source: { path: "/crawler/discover/tv-by-language", query: { language }, itemEnvelope: "data" } },
-    { id: "tmdb-discover-networks", titleKey: "home.tmdb_discover_networks", preset: "networks-list", source: { path: "/crawler/discover/tv-by-network", itemEnvelope: "data" } },
-    { id: "tmdb-top-rated-movies", titleKey: "home.tmdb_top_rated_movies", mediaType: "movie", preset: "poster-list", source: { path: "/tmdb/movie/top_rated", query: { language, page: 1, limit: 20 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },
-    { id: "tmdb-top-rated-tv-shows", titleKey: "home.tmdb_top_rated_tv_shows", mediaType: "tv", preset: "poster-list", source: { path: "/tmdb/tv/top_rated", query: { language, page: 1, limit: 20 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } }
+    }
   ];
 }
 function resolveBlockTitle(block: HomeBlockTemplate, language: string): HomeBlock { const { titleKey, ...rest } = block; if (!titleKey) return rest; const title = resolveTitle(titleKey, language); const routeParams = TMDB_LIST_ROUTE_PARAMS[rest.id]; return { ...rest, title, ...(routeParams ? { route: createTmdbListRoute(title, routeParams) } : {}) }; }

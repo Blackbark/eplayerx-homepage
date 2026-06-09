@@ -29,7 +29,8 @@ type SourceQueryValue = string | number | boolean; interface HomePagination { pa
 type TmdbListRoute = { type: "tmdb-list"; title: string; params: { category: "trending" | "top-rated" | "discover"; type: "movie" | "tv"; genre?: string; language?: string; network?: string; networkName?: string; }; };
 type TmdbListRouteParams = TmdbListRoute["params"];
 interface HomeBlockSource { id?: string; path?: string; query?: Record<string, SourceQueryValue>; itemEnvelope?: "data" | "results" | "array"; pagination?: HomePagination; }
-interface HomeBlock { id: string; title?: string; mediaType?: "movie" | "tv"; preset: string; showRank?: boolean; showOverview?: boolean; showScore?: boolean; showLogo?: boolean; source?: HomeBlockSource; metadata?: { isAnime?: boolean; }; route?: TmdbListRoute; }
+// 🌟 TypeScript 接口支持 showScore
+interface HomeBlock { id: string; title?: string; mediaType?: "movie" | "tv"; preset: string; showRank?: boolean; showOverview?: boolean; showScore?: boolean; source?: HomeBlockSource; metadata?: { isAnime?: boolean; }; route?: TmdbListRoute; }
 type HomeBlockTemplate = Omit<HomeBlock, "title"> & { titleKey?: HomeTitleKey; };
 export interface DefaultHomeConfigOptions { apiBaseUrl: string; imageBaseUrl: string; language: string; timezone: string; }
 export interface DefaultHomeConfig { version: number; apiBaseUrl: string; imageBaseUrl: string; carouselSourceId: string; blocks: HomeBlock[]; }
@@ -80,10 +81,9 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       id: "bangumi_airing",
       mediaType: "tv",
       titleKey: "home.bangumi_popular_anime",
-      preset: "poster-list",
+      preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/bangumi_airing", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/bangumi_airing", itemEnvelope: "data" },
     },
     {
       id: "imdb_top_anime",
@@ -91,8 +91,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.imdb_top_anime",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/imdb_top_anime", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/imdb_top_anime", itemEnvelope: "data" },
     },
     {
       id: "prime_hot_anime",
@@ -100,8 +99,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.prime_hot_anime",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/prime_hot_anime", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/prime_hot_anime", itemEnvelope: "data" },
     },
     {
       id: "filmarks_anime_movie",
@@ -109,8 +107,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.filmarks_anime_movie",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/filmarks_anime_movie", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/filmarks_anime_movie", itemEnvelope: "data" },
     },
     {
       id: "netflix_hot_anime",
@@ -118,8 +115,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.netflix_hot_anime",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/netflix_hot_anime", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/netflix_hot_anime", itemEnvelope: "data" },
     },
     {
       id: "tmdb_anime_top_ja",
@@ -127,8 +123,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_anime_top_ja",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_top_ja", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_top_ja", itemEnvelope: "data" },
     },
     {
       id: "tmdb_anime_jp",
@@ -136,8 +131,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_anime_jp",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_jp", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_jp", itemEnvelope: "data" },
     },
     {
       id: "tmdb_anime_movie_ja",
@@ -145,8 +139,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_anime_movie_ja",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_movie_ja", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_movie_ja", itemEnvelope: "data" },
     },
     {
       id: "tmdb_anime_cn",
@@ -154,10 +147,8 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_domestic_anime",
       preset: "hero-list",
       showOverview: true,
-      showRank: true,
       showScore: true,
-      showLogo: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_cn", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_anime_cn", itemEnvelope: "data" },
     },
     {
       id: "tmdb_tv_netflix",
@@ -165,10 +156,8 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_tv_netflix",
       preset: "hero-list",
       showOverview: true,
-      showRank: true,
       showScore: true,
-      showLogo: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_netflix", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_netflix", itemEnvelope: "data" },
     },
     {
       id: "tmdb_tv_hbo",
@@ -176,8 +165,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_tv_hbo",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_hbo", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_hbo", itemEnvelope: "data" },
     },
     {
       id: "tmdb_tv_apple",
@@ -185,8 +173,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_tv_apple",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_apple", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_apple", itemEnvelope: "data" },
     },
     {
       id: "trakt_movies",
@@ -194,8 +181,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.trakt_movies",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/trakt_movies", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/trakt_movies", itemEnvelope: "data" },
     },
     {
       id: "trakt_shows",
@@ -203,8 +189,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.trakt_shows",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/trakt_shows", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/trakt_shows", itemEnvelope: "data" },
     },
     {
       id: "douban_movies",
@@ -212,8 +197,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_movies",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_movies", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_movies", itemEnvelope: "data" },
     },
     {
       id: "douban_tv",
@@ -221,8 +205,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_tv_shows",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_tv", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_tv", itemEnvelope: "data" },
     },
     {
       id: "douban_hot_variety",
@@ -230,8 +213,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_variety_shows",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_hot_variety", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_hot_variety", itemEnvelope: "data" },
     },
     {
       id: "douban_korean_tv",
@@ -239,8 +221,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_korean_tv_shows",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_korean_tv", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_korean_tv", itemEnvelope: "data" },
     },
     {
       id: "tmdb_tv_ja",
@@ -248,8 +229,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_japanese_tv_shows",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_ja", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_ja", itemEnvelope: "data" },
     },
     {
       id: "tmdb_tv_tw",
@@ -257,8 +237,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_taiwanese_tv_shows",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_tw", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_tw", itemEnvelope: "data" },
     },
     {
       id: "tmdb_movie_tw",
@@ -266,8 +245,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_taiwanese_movies",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_movie_tw", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_movie_tw", itemEnvelope: "data" },
     },
     {
       id: "tmdb_tv_th",
@@ -275,8 +253,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_tv_th",
       preset: "thumb-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_th", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_th", itemEnvelope: "data" },
     },
     {
       id: "tmdb_movie_th",
@@ -284,8 +261,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_movie_th",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_movie_th", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_movie_th", itemEnvelope: "data" },
     },
     {
       id: "tmdb_movie_sea",
@@ -293,8 +269,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.tmdb_movie_sea",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_movie_sea", itemEnvelope: "data" }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_movie_sea", itemEnvelope: "data" },
     },
     {
       id: "tmdb_tv_es",
@@ -302,9 +277,16 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       titleKey: "home.popular_spanish_tv_shows",
       preset: "poster-list",
       showOverview: true,
-      showRank: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_es", itemEnvelope: "data" }
-    }
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_tv_es", itemEnvelope: "data" },
+    },
+    { id: "tmdb-popular-tv-shows", mediaType: "tv", titleKey: "home.tmdb_popular_tv_shows", preset: "thumb-list", showRank: true, source: { path: "/tmdb/trending/tv", query: { language, page: 1, limit: 20 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },
+    { id: "tmdb-popular-movies", mediaType: "movie", titleKey: "home.tmdb_popular_movies", preset: "thumb-list", showRank: true, source: { path: "/tmdb/trending/movie", query: { language, page: 1 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },
+    { id: "tmdb-on-the-air-tv-shows", mediaType: "tv", titleKey: "home.tmdb_on_the_air_tv_shows", preset: "hero-list", source: { path: "/tmdb/tv/on_the_air", query: { language, timezone }, itemEnvelope: "results" } },
+    { id: "tmdb-discover-genres", titleKey: "home.tmdb_discover_genres", preset: "genres-list", source: { path: "/crawler/discover/genres", query: { language }, itemEnvelope: "data" } },
+    { id: "tmdb-discover-tv-by-language", titleKey: "home.tmdb_discover_languages", preset: "languages-list", source: { path: "/crawler/discover/tv-by-language", query: { language }, itemEnvelope: "data" } },
+    { id: "tmdb-discover-networks", titleKey: "home.tmdb_discover_networks", preset: "networks-list", source: { path: "/crawler/discover/tv-by-network", itemEnvelope: "data" } },
+    { id: "tmdb-top-rated-movies", titleKey: "home.tmdb_top_rated_movies", mediaType: "movie", preset: "poster-list", source: { path: "/tmdb/movie/top_rated", query: { language, page: 1, limit: 20 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } },
+    { id: "tmdb-top-rated-tv-shows", titleKey: "home.tmdb_top_rated_tv_shows", mediaType: "tv", preset: "poster-list", source: { path: "/tmdb/tv/top_rated", query: { language, page: 1, limit: 20 }, itemEnvelope: "results", pagination: { pageParam: "page", startPage: 1 } } }
   ];
 }
 function resolveBlockTitle(block: HomeBlockTemplate, language: string): HomeBlock { const { titleKey, ...rest } = block; if (!titleKey) return rest; const title = resolveTitle(titleKey, language); const routeParams = TMDB_LIST_ROUTE_PARAMS[rest.id]; return { ...rest, title, ...(routeParams ? { route: createTmdbListRoute(title, routeParams) } : {}) }; }

@@ -295,7 +295,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       id: "netflix_movie_minor",
       mediaType: "movie",
       titleKey: "home.netflix_minor_movies",
-      preset: "hero-list",
+      preset: "thumb-list",
       showOverview: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/netflix_movie_minor", itemEnvelope: "data" },
     },

@@ -86,7 +86,7 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       id: "tmdb_popular_tv",
       mediaType: "tv",
       titleKey: "home.tmdb_popular_tv_shows",
-      preset: "hero-list",
+      preset: "thumb-list",
       showRank: true,
       showOverview: true,
       source: { path: "https://movie-api.l3okuu.workers.dev/api/tmdb_popular_tv", itemEnvelope: "data" },

@@ -16,7 +16,9 @@ type HomeTitleKey = "home.continue_watching" | "home.tmdb_popular_tv_shows" | "h
   | "home.trakt_shows"
   | "home.popular_movies"
   | "home.popular_tv_shows"
-  | "home.popular_variety_shows"
+  | "home.variety_cn"
+  | "home.variety_kr"
+  | "home.variety_global"
   | "home.popular_korean_tv_shows"
   | "home.popular_japanese_tv_shows"
   | "home.popular_taiwanese_tv_shows"
@@ -63,7 +65,9 @@ const TITLE_TRANSLATIONS: Record<HomeTitleKey, Record<Locale, string>> = {
   "home.trakt_shows": { en: "Trending Western Series", zh: "时下热播欧美剧集", "zh-Hant": "時下熱播歐美劇集", ja: "話題の欧米ドラマ", es: "Series Occidentales en Tendencia", ar: "مسلسلات غربية رائجة" },
   "home.popular_movies": { en: "Trending Movies", zh: "实时热门电影", "zh-Hant": "實時熱門電影", ja: "リアルタイム人気映画", es: "Películas en Tendencia", ar: "أفلام رائجة" },
   "home.popular_tv_shows": { en: "Trending Domestic Dramas", zh: "时下最热门的国产剧", "zh-Hant": "時下最熱門的國產劇", ja: "話題の中国ドラマ", es: "Dramas Chinos en Tendencia", ar: "دراما صينية رائجة" },
-  "home.popular_variety_shows": { en: "Today's Popular Variety Shows", zh: "实时热门综艺", "zh-Hant": "實時熱門綜藝", ja: "今日の人気バラエティ", es: "Programas de Variedades Populares de Hoy", ar: "برامج منوعة" },
+  "home.variety_cn": { en: "Popular Chinese Variety Shows", zh: "热门国产综艺", "zh-Hant": "熱門國產綜藝", ja: "人気の中国バラエティ", es: "Variedades Chinas", ar: "برامج منوعة صينية" },
+  "home.variety_kr": { en: "Trending Korean Variety Shows", zh: "爆款韩国综艺", "zh-Hant": "爆款韓國綜藝", ja: "人気の韓国バラエティ", es: "Variedades Coreanas", ar: "برامج منوعة كورية" },
+  "home.variety_global": { en: "Global Hit Variety Shows", zh: "全球热门综艺", "zh-Hant": "全球熱門綜藝", ja: "世界の人気バラエティ", es: "Variedades Globales", ar: "برامج منوعة عالمية" },
   "home.popular_korean_tv_shows": { en: "Popular Korean Dramas", zh: "备受欢迎的韩剧推荐", "zh-Hant": "備受歡迎的韓劇推薦", ja: "人気の韓国ドラマ", es: "Dramas Coreanos Populares", ar: "دراما كورية شائعة" },
   "home.popular_japanese_tv_shows": { en: "Trending Japanese Dramas", zh: "细腻又治愈的高人气日剧", "zh-Hant": "細膩又治癒的高人氣日剧", ja: "話題の日本ドラマ", es: "Dramas Japoneses en Tendencia", ar: "دراما يابانية رائجة" },
   "home.popular_taiwanese_tv_shows": { en: "Popular Taiwanese Dramas", zh: "台剧当然也不能落下", "zh-Hant": "台劇當然也不能落下", ja: "人気の台湾ドラマ", es: "Dramas Taiwaneses Populares", ar: "دراما تايوانية شائعة" },
@@ -247,13 +251,31 @@ function createDefaultBlockTemplates(language: string, timezone: string): HomeBl
       source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_tv", itemEnvelope: "data" },
     },
     {
-      id: "douban_hot_variety",
+      id: "variety_cn",
       mediaType: "tv",
-      titleKey: "home.popular_variety_shows",
+      titleKey: "home.variety_cn",
       preset: "thumb-list",
       showRank: true,
       showOverview: true,
-      source: { path: "https://movie-api.l3okuu.workers.dev/api/douban_hot_variety", itemEnvelope: "data" },
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/variety_cn", itemEnvelope: "data" },
+    },
+    {
+      id: "variety_kr",
+      mediaType: "tv",
+      titleKey: "home.variety_kr",
+      preset: "poster-list",
+      showRank: true,
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/variety_kr", itemEnvelope: "data" },
+    },
+    {
+      id: "variety_global",
+      mediaType: "tv",
+      titleKey: "home.variety_global",
+      preset: "thumb-list",
+      showRank: true,
+      showOverview: true,
+      source: { path: "https://movie-api.l3okuu.workers.dev/api/variety_global", itemEnvelope: "data" },
     },
     {
       id: "douban_korean_tv",
